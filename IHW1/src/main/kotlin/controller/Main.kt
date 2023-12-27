@@ -1,6 +1,5 @@
 package controller
 
-import model.TicketTable
 import repository.Database
 import view.PrintSelect
 
