@@ -68,14 +68,7 @@ class Reader(db: Database) {
                 println("it must be number")
             }
         }
-        var movie: Movie? = null
-        try {
-            movie = Movie(name, duration)
-        } catch (e: IllegalStateException) {
-            println(e)
-            readMovie()
-        }
-        return movie!!
+        return Movie(name, duration)
     }
 
     fun readSessionStart(name: String, movie: String): Session {
@@ -116,7 +109,6 @@ class Reader(db: Database) {
             session =  Session(name, startTime, movie, db)
         } catch (e: IllegalStateException) {
             println(e)
-            readSession(movie)
         }
         return session!!
     }
