@@ -58,7 +58,8 @@ class FifthStep(ps: PrintSelect, rd: Reader, db: Database,
     private fun sellTicket() {
         try {
             TicketTable(db).insert(rd.readTicket(value))
-        } catch (_: Exception) {}
+        } catch (_: NullPointerException) {
+        }
         start()
     }
 
