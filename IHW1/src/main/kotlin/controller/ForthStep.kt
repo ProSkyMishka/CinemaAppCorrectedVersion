@@ -90,7 +90,10 @@ class ForthStep(ps: PrintSelect, rd: Reader, db: Database,
     }
 
     private fun addSession() {
-        SessionTable(db).insert(rd.readSession(value))
+        try {
+            SessionTable(db).insert(rd.readSession(value))
+        } catch (_: NullPointerException) {
+        }
         start()
     }
 
